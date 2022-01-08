@@ -20,9 +20,20 @@ title('Evolución de las variables articulares');
 xlabel('tiempo[s]');
 ylabel('q[°]');
 set(gca, 'FontSize', 15);
+set(gca, 'ytick', -180:20:180);
+set(gca, 'xtick', T_pendulo(1):0.5:T_pendulo(end)+1);
 
 % grafico de la señal de control del doble péndulo
 figure
 hold on;
 plot( t_acum, senial_control_acum(1,:), 'b-','linewidth',2);
+hold on;
+plot( t_acum, senial_control_acum(2,:), 'r-','linewidth',2);
 grid on;
+legend('u1','u2');
+title('Señales de control del doble péndulo');
+xlabel('tiempo[s]');
+ylabel('u [V]');
+set(gca, 'FontSize', 15);
+set(gca, 'ytick', 0:0.1:1);
+set(gca, 'xtick', T_pendulo(1):0.5:T_pendulo(end)+1);
